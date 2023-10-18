@@ -1,12 +1,19 @@
 import java.lang.Math;
+import java.util.Arrays;
 
 public class App {
     public static void main(String[] args) {
         
-        int[] vetor = cria_vetor_ordenado_decrescrente(100000);
+        int[] vetor = cria_vetor_ordenado_decrescrente(100);
+        int[] aux = new int[vetor.length];
 
-        Insercao.insercao(vetor);
+        long comeco = System.currentTimeMillis();
+        MergeSort.mergeSort(vetor,aux, 0, vetor.length-1);
+        long fim = (System.currentTimeMillis() - comeco) ;
 
+        //System.out.println(Arrays.toString(vetor));
+
+        System.out.println(fim + " Milisegundos");
     }
 
     public static int[] cria_vetor_aleatorio(int quantPosicoes) {
